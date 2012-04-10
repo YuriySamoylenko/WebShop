@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true">
+  <siteMapNode url="~/Default.aspx" title=""  description="" resourceKey="MenuHome">
+    <siteMapNode url="~/ShowDepartments.aspx" title="Departments"  description="" resourceKey="MenuDepartments" />
+    <siteMapNode url="~/ShowProducts.aspx" title="Product Catalog" resourceKey="MenuProducts"></siteMapNode>
+    <siteMapNode url="~/Search.aspx" title="Search" resourceKey="MenuSearch"></siteMapNode>
+    <siteMapNode url="~/About.aspx" title="About" resourceKey="MenuAbout" />
+    <siteMapNode url="~/Admin/Admin.aspx" title="Admin" resourceKey="MenuAdmin" description="" roles="Administrators">
+      <siteMapNode url="~/Admin/EditUsers.aspx" title="EditUsers" resourceKey="MenuEditUsers"></siteMapNode>
+      <siteMapNode url="~/Admin/EditDepartments.aspx" title="EditDepartments" resourceKey="MenuEditDepartments"/>
+      <siteMapNode url="~/Admin/AddProduct.aspx" title="EditProducts" resourceKey="MenuAddProduct"></siteMapNode>
+      <siteMapNode url="~/Admin/EditOrders.aspx" title="EditOrders" resourceKey="MenuEditOrders"></siteMapNode>
+      <siteMapNode url="~/Admin/ViewReports.aspx" title="" resourceKey="MenuViewReports"></siteMapNode>
+      <siteMapNode url="~/Admin/GenerateReplenish.aspx" title="" resourceKey="MenuGenerateReplenish"></siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

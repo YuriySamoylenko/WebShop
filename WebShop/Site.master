@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%@ Import Namespace="System.Threading" %>
+<%@ Import Namespace="System.Globalization" %>
+<script runat="server">
+
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div id="topbar">
+        <div class="content">
+            <div class="wrap content">
+                <div class="se">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="False">
+                        <AnonymousTemplate>
+                            [
+                            <asp:HyperLink NavigateUrl="~/Account/Login.aspx" ID="hlkHeadLogIn" runat="server"
+                                meta:resourcekey="hlkHeadLogInResource1"></asp:HyperLink>
+                            ]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <asp:Label ID="lblWelcome" runat="server" meta:resourcekey="lblWelcomeResource1"></asp:Label>
+                            <span>
+                                <asp:LoginName ID="HeadLoginName" runat="server" meta:resourcekey="HeadLoginNameResource1" />
+                            </span>! [
+                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText=""
+                                LogoutPageUrl="~/" meta:resourcekey="HeadLoginStatusResource1" />
+                            ]
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Administrators">
+                                <ContentTemplate>
+                                    <asp:Label ID="lblWelcome2" runat="server" meta:resourcekey="lblWelcomeResource1"></asp:Label>
+                                    <span>
+                                        <asp:LoginName ID="HeadLoginName" runat="server" meta:resourcekey="HeadLoginNameResource2" />
+                                    </span>! (<asp:Label ID="lblAdmin" runat="server" Text="Administrator" meta:resourcekey="lblAdminResource1"></asp:Label>)
+                                    [
+                                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/"
+                                        meta:resourcekey="HeadLoginStatusResource1" />
+                                    ]
+                                    <br />
+                                    <asp:HyperLink ID="hlkEditProf" runat="server" NavigateUrl="~/EditProfile.aspx" Text="Edit Profile"
+                                        meta:resourcekey="hlkEditProfResource1"></asp:HyperLink></ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="AuthorizedUser">
+                                <ContentTemplate>
+                                    <asp:Label ID="lblWelcome3" runat="server" meta:resourcekey="lblWelcomeResource1"></asp:Label>
+                                    <span>
+                                        <asp:LoginName ID="HeadLoginName" runat="server" meta:resourcekey="HeadLoginNameResource3" />
+                                    </span>! [
+                                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText=""
+                                        LogoutPageUrl="~/" meta:resourcekey="HeadLoginStatusResource1" />
+                                    ]
+                                    <br />
+                                    <asp:HyperLink ID="hlkEditProf" runat="server" NavigateUrl="~/EditProfile.aspx" Text="Edit Profile"
+                                        meta:resourcekey="hlkEditProfResource1"></asp:HyperLink>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="NonAuthorizedUser">
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="ElectedUser">
+                                <ContentTemplate>
+                                    <asp:Label ID="lblWelcome4" runat="server" meta:resourcekey="lblWelcomeResource1"></asp:Label>
+                                    <span>
+                                        <asp:LoginName ID="HeadLoginName" runat="server" meta:resourcekey="HeadLoginNameResource4" />
+                                    </span>! [
+                                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText=""
+                                        LogoutPageUrl="~/" meta:resourcekey="HeadLoginStatusResource1" />
+                                    ]
+                                    <br />
+                                    <asp:HyperLink ID="hlkEditProf" runat="server" NavigateUrl="~/EditProfile.aspx" Text="Edit Profile"
+                                        meta:resourcekey="hlkEditProfResource1"></asp:HyperLink>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                </div>
+                <div class="floatLeft">
+                    <h1>
+                        <asp:HyperLink ID="hlkGlobalHeader" runat="server" NavigateUrl="~/Default.aspx" Text="Web Shop"
+                            meta:resourcekey="hlkGlobalHeader"></asp:HyperLink></h1>
+                </div>
+                <div class="center">
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblSelectLanguage" runat="server" Text="Select Language:" 
+                                    meta:resourcekey="lblSelectLanguageResource1"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:LinkButton ID="hlkEng" runat="server" Text="Eng" OnClick="hlkEng_Click" 
+                                    meta:resourcekey="hlkEngResource1"></asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="hlkRus" runat="server" Text="Rus" OnClick="hlkRus_Click" 
+                                    meta:resourcekey="hlkRusResource1"></asp:LinkButton>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="subbar">
+        <div class="content">
+            <div class="menu">
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" IncludeStyleBlock="False"
+                    EnableViewState="False" SkipLinkText="" EnableTheming="True" DataSourceID="SiteMapDataSource1"
+                    StaticDisplayLevels="2" RenderingMode="List" MaximumDynamicDisplayLevels="0"
+                    meta:resourcekey="Menu1Resource1">
+                </asp:Menu>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div id="main">
+            <div class="padding">
+                <div class="right_side">
+                    <h3>
+                        <asp:Label ID="lblDepartments" runat="server" Text="DEPARTMENTS" meta:resourcekey="lblDepartmentsResource1"></asp:Label>
+                    </h3>
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1" ShowFooter="False"
+                        ShowHeader="False" Width="100%" meta:resourcekey="DataList1Resource1">
+                        <ItemTemplate>
+                            <asp:HyperLink ID="HyperLink2" runat="server" Text='<%# Eval("Title") %>' NavigateUrl='<%# "~/ShowProducts.aspx?id=" + Eval("ID") %>'
+                                meta:resourcekey="HyperLink2Resource1"></asp:HyperLink>
+                        </ItemTemplate>
+                    </asp:DataList>
+                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetDepartments"
+                        TypeName="BLL.Department"></asp:ObjectDataSource>
+                    <div class="rs">
+                        <h3>
+                            <asp:HyperLink ID="hlkShoppingCart" runat="server" Text="Shopping Cart" NavigateUrl="~/ShoppingCartPage.aspx"
+                                meta:resourcekey="hlkShoppingCartResource1"></asp:HyperLink>
+                        </h3>
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblCartContent" runat="server" Text="Shopping Cart is Empty" meta:resourcekey="lblCartContentResource1"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Text="Product Count:" Visible="False" meta:resourcekey="Label1Resource1"></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Visible="False" meta:resourcekey="Label2Resource1"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="Label3" runat="server" Text="Price:" Visible="False" meta:resourcekey="Label3Resource1"></asp:Label>
+                                    <asp:Label ID="Label4" runat="server" Visible="False" meta:resourcekey="Label4Resource1"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:HyperLink ID="hlkOrders" runat="server" Text="Order History" Visible="False"
+                                        meta:resourcekey="hlkOrdersResource1"></asp:HyperLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="left_side">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="fmenu">
+                <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" IncludeStyleBlock="False"
+                    EnableViewState="False" SkipLinkText="" EnableTheming="True" DataSourceID="SiteMapDataSource1"
+                    StaticDisplayLevels="2" MaximumDynamicDisplayLevels="0" meta:resourcekey="Menu2Resource1">
+                </asp:Menu>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

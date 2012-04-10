@@ -1,0 +1,7 @@
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\bin\Debug\BLL.dll
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\bin\Debug\BLL.pdb
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\bin\Debug\DAL.dll
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\bin\Debug\DAL.pdb
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\obj\Debug\BLL.dll
+C:\Documents and Settings\User\Мои документы\Visual Studio 2010\Projects\WebShop\BLL\obj\Debug\BLL.pdb
