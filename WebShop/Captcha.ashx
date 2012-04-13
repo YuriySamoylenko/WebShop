@@ -24,7 +24,7 @@ public class Captcha : IHttpHandler, IReadOnlySessionState
            if (context.Session["Captcha"] == null) return;
            string captcha = context.Session["Captcha"].ToString();
 
-           // создаем bitmap-объект изображение в качестве холста для рисования
+           // изображение в качестве холста для рисования
            Bitmap bitmap = new Bitmap(width, height);
 
            // получаем Graphics – своего рода «контроллер» рисования,
@@ -44,10 +44,6 @@ public class Captcha : IHttpHandler, IReadOnlySessionState
            graphics.DrawString(captcha, font, foregroundBrush, 0, 0);
            font.Dispose();
 
-           // теперь можно было бы остановиться, но так текст легко
-           // распознать с изображения, поэтому необходимо его как-то трансформировать;
-           // я вытяну его вправо за середину и наложу сверху случайные линии мусора
-
            // вытягиваю текст путем перемещения части пикселов bitmap,
            // чем ближе пиксел к серединной линии – тем сильнее будет
            // смещение пиксела вправо
@@ -64,20 +60,6 @@ public class Captcha : IHttpHandler, IReadOnlySessionState
                
                }
            }
-
-           //// теперь рисую линии мусора
-           //var pen = new Pen(foregroundBrush); // карандаш
-
-           //// случайные значения для координат
-           //var rnd = new byte[linesCount*4];
-           ////CaptchaControl.Rand.GetBytes(rnd);
-
-           //// рисую линии
-           //for (int i = 0; i < linesCount; i++)
-           //    graphics.DrawLine(pen, rnd[4 * i] % width, rnd[4 * i + 1] % height,
-           //                       rnd[4 * i + 2] % width, rnd[4 * i + 3] % height);
-           
-           //pen.Dispose();
 
            // теперь изображение готово, мне нужно преобразовать его
            // в поток байт, чтобы вернуть браузеру
